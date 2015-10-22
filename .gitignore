@@ -74,3 +74,5 @@ target/
 # Django stuff:
 *.json
 *.csv
+*.ods
+*.xlsx
