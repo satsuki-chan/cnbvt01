@@ -1,0 +1,1273 @@
+-- URL
+src="http://lt.morningstar.com/7ap7omrzjm/fundquickrank/default.aspx" ddf_src="http://lt.morningstar.com/7ap7omrzjm/fundquickrank/default.aspx"
+
+
+
+-- Búsquedas
+response.xpath('//tr[contains(@class, "gridItem")]')
+response.xpath('//tr[contains(@class, "gridItem")]/td[@class="msDataText gridFundName Shrink"]/a/text()').extract()
+response.xpath('//tr[contains(@class, "gridItem")]/td[@class="msDataText gridFundName Shrink"]/a/@href').extract()
+response.xpath('//tr[contains(@class, "gridItem")]/td[@class="msDataText gridAmibSectorName"]/text()').extract()
+
+<tr class="gridItem gridAlternateItem" id="rowF00000QL7B">
+    <td class="gridCheckbox">
+        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl19_chkFund" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl19$chkFund" onclick="selectFund(this.checked,'F00000QL7B','F00000QL7B]2]1]FOMEX$$ALL_1414','{\&quot;fundid\&quot;:\&quot;F00000QL7B\&quot;,\&quot;securitytoken\&quot;:\&quot;F00000QL7B]2]1]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;+CIPLUS BM\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0M0041\&quot;,\&quot;performanceid\&quot;:\&quot;0P0000ZSDK\&quot;}');" type="checkbox">
+    </td>
+    <td class="msDataText gridFundName Shrink"><a title="+CIPLUS BM-3" href="../snapshot/snapshot.aspx?id=F00000QL7B&amp;SecurityToken=F00000QL7B%5d2%5d1%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=1&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIPLUS BM-3</a></td>
+    <td class="msDataText gridAmibSectorName">Dueda PF - Agresivo</td><td class="msDataNumeric gridM12"><span class="ReturnPositive">2.02</span></td>
+    <td title="28/09/2015" class="msDataNumeric gridClosePrice">1.79094</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+</tr>
+
+
+-- Paginación
+response.xpath('//div[@id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_AspNetPager"]/table/tr/td/a[3]').extract()
+response.xpath('//div[@id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_AspNetPager"]/table/tr/td/a[3]/@href').extract()
+
+<div id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_AspNetPager">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+        <tr>
+            <td class="ms_page_custom_label msPagerBarXOfYLabel" style="width:40%;" valign="bottom" align="left"><span>1-20 de 2837</span></td>
+            <td class="" style="width:60%;" valign="bottom" align="right">
+                <a class="pager_disabled disabled">Primero</a><span> | </span>
+                <a class="pager_disabled disabled">Ant</a><span> | </span>
+                <a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$aFundQuickrankControl$AspNetPager','2')">Sig</a><span> | </span>
+                <a href="javascript:__doPostBack('ctl00$ContentPlaceHolder1$aFundQuickrankControl$AspNetPager','142')">Últ.</a></td>
+                -->
+                        <input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" /> # valor: ctl00$ContentPlaceHolder1$aFundQuickrankControl$AspNetPager
+                        <input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" /> # valor:2
+                <--
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<select name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$ddlPageSize" onchange="javascript:setTimeout('__doPostBack(\'ctl00$ContentPlaceHolder1$aFundQuickrankControl$ddlPageSize\',\'\')', 0)" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlPageSize">
+    <option selected="selected" value="20">20 por pág</option>
+    <option value="50">50 por pág</option>
+    <option value="100">100 por pág</option>
+    <option value="250">250 por pág</option>
+    <option value="500">500 por pág</option>
+
+</select>
+
+-- Página de un fondo
+- categoría: response.xpath('string(//div[@id="keyStatsDiv"]/table[contains(@class, "keyStatsTable")]/tbody/tr[4]/td)').extract()
+- adquirientes: response.xpath('//div[@id="keyStatsDiv"]/table[contains(@class, "keyStatsTable")]/tbody/tr[8]/td[2]/following-sibling::*/span/text()').extract()
+- fecha_inicio = response.xpath('string(//div[@id="keyStatsDiv"]/table[contains(@class, "keyStatsTable")]/tbody/tr[16]/td[3])').extract()
+- benchmark: response.xpath('//div[@id="benchmarksBodyDiv"]/table/tr[2]/td/text()').extract()
+
+<table class="snapshotTextColor snapshotTextFontStyle snapshotTable keyStatsTable" border="0">
+<tbody>
+<tr><td style="width:49%;" class="titleBarHeading" colspan="3"><span>Estadística Rápida</span></td></tr>
+<tr><td style="width:49%;" class="spacer" colspan="3"><span>&nbsp;</span></td></tr>
+<tr><td style="width:49%;" class="heading paddingbottom3px" colspan="3"><span>Categoría</span></td></tr>
+<tr><td style="width:49%;" class="value text paddingbottom10px" colspan="3"><span>Mixtos Agresivos</span></td></tr>
+<tr><td style="width:49%;" class="heading paddingbottom3px"><span>Calidad de activos</span></td><td style="width:2%;"></td><td style="width:49%;" class="heading paddingbottom3px"><span>Riesgo de mercado</span></td></tr>
+<tr><td style="width:49%;" class="value text paddingbottom10px"><span>-</span></td><td style="width:2%;"></td><td style="width:49%;" class="value text paddingbottom10px"><span>-</span></td></tr>
+<tr><td style="width:49%;" class="heading paddingbottom3px"><span>Calificadora</span></td><td style="width:2%;"></td><td style="width:49%;" class="heading paddingbottom3px"><span>Posibles adquirentes</span></td></tr>
+<tr><td style="width:49%;" class="value text paddingbottom10px"><span>-</span></td><td style="width:2%;"></td><td style="width:49%;" id="tdpf" class="value text paddingbottom10px"><span>Personas físicas</span></td></tr>
+<tr><td style="width:49%;" class="heading paddingbottom3px"><span>ISIN</span></td><td style="width:2%;"></td><td style="width:49%;" class="heading paddingbottom3px"><span>Número inversionistas</span></td></tr>
+<tr><td style="width:49%;" class="value text paddingbottom10px"><span>MX52CI0L0057</span></td><td style="width:2%;"></td><td style="width:49%;" class="value text paddingbottom10px"><span>-</span></td></tr>
+<tr><td style="width:49%;" class="heading paddingbottom3px"><span>Precio&nbsp;<span style="font-weight:normal; padding-left: 8px;">29/09/2015</span></span></td><td style="width:2%;"></td><td style="width:49%;" class="heading paddingbottom3px"><span>Cambio del día</span></td></tr>
+<tr><td style="width:49%;" class="value text paddingbottom10px"><span>MXN 1.85305</span></td><td style="width:2%;"></td><td style="width:49%;" class="value text paddingbottom10px"><span>-</span></td></tr><tr><td style="width:49%;" class="heading paddingbottom3px"><span>Activos Netos (mill)&nbsp;<span style="font-weight:normal; padding-left: 8px;"><br><span class="heading_div">31/08/2015</span></span></span></td><td style="width:2%;"></td><td style="width:49%;" class="heading paddingbottom3px"><span>Total de gastos y comisiones</span></td></tr>
+<tr><td style="width:49%;" class="value text paddingbottom10px"><span>MXN 2.06</span></td><td style="width:2%;"></td><td style="width:49%;" class="value text paddingbottom10px"><span>-</span></td></tr><tr><td style="width:49%;" class="heading paddingbottom3px"><span>Categoría del Fondo</span></td><td style="width:2%;"></td><td style="width:49%;" class="heading paddingbottom3px"><span>Creación del Fondo</span></td></tr>
+<tr><td style="width:49%;" class="value text paddingbottom10px"><span>-</span></td><td style="width:2%;"></td><td style="width:49%;" class="value text paddingbottom10px"><span>09/07/2015</span></td></tr>
+<tr><td style="width:49%;"><span><table><tbody><tr><td class="heading" id="VarTDLabel" style="vertical-align: middle;"><span>Riesgo&nbsp;</span></td><td style="font-weight:normal;"><span>-</span></td><td style="width:30%;"></td></tr></tbody></table></span></td><td style="width:2%;"></td><td style="width:49%;"><span>
+    <table>
+    <tbody>
+        <tr><td class="heading" id="VarTDLabel" style="vertical-align: middle;"><span>VaR&nbsp;</span></td><td style="font-weight:normal;"><span>-</span></td><td style="width:30%;"></td></tr></tbody></table></span></td></tr>
+        <tr><td style="width:49%;" class="spacer" colspan="3"><span>&nbsp;</span></td></tr>
+        <tr><td style="width:49%;" class="value text paddingbottom10px" id="msFundSnapshotCustomRisk"><span>-</span></td><td style="width:2%;"></td><td style="width:49%;" class="value text paddingbottom10px"><span>- %</span></td></tr>
+        <tr><td style="width:49%;" class="bigspacer" colspan="3"><span>&nbsp;</span></td></tr>
+    </tbody>
+    </table>
+
+-- Enlaces
+- Generado en búsqueda:
+http://lt.morningstar.com/7ap7omrzjm/snapshot/snapshot.aspx?id=F00000VTTB&SecurityToken=F00000VTTB]2]0]FOMEX%24%24ALL_1414&clearcache=true&ClientFund=0&LanguageId=es-MX&CurrencyId=MXN&UniverseId=FOMEX%24%24ALL_1414&BaseCurrencyId=MXN
+- Oficial MorningStar:
+http://www.morningstar.com.mx/mx/funds/snapshot/snapshot.aspx?id=F0000005MB
+
+-- Sitio completo
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+
+
+
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es">
+
+
+
+    <head><title>
+    &nbsp; - Fund Quickrank
+</title>
+            <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+            <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+
+            <meta http-equiv="content-language" content="es-MX" />
+            <meta name="language" content="Spanish (Mexico)" />
+
+            <link rel="stylesheet" type="text/css" href="/styles/reset.css" />
+            <link rel="stylesheet" type="text/css" href="/styles/styles.css?20150908" />
+            <script type="text/javascript" src="/js/scripts.js"></script>
+            <script type="text/javascript" src="/js/help.js"></script>
+            <script type="text/javascript" src="/js/homefunctions.js"></script>
+
+            <script type="text/javascript" src="/js/jquery/jquery-1.7.1.min.js"></script>
+
+
+
+<link rel="stylesheet" type="text/css" href="/styles/tab-bars.css?20150908" />
+<link rel="stylesheet" type="text/css" href="/styles/action-menu.css" />
+<link rel="stylesheet" type="text/css" href="/styles/quickrank.css?20150908" />
+<link rel="stylesheet" type="text/css" href="/styles/gridview.css?20150908" />
+<link rel="stylesheet" type="text/css" href="/styles/export-excel.css?20150908" />
+
+<script type="text/javascript" src="/js/jquery/jquery.placeholder.min.js"></script>
+<script type="text/javascript" src="/js/quickrank.min.js?20150908"></script>
+
+    <link rel="stylesheet" type="text/css" href="/styles/jquery-ui-1.8.4.morningstar.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/export-excel.css?20150908" />
+    <script type="text/javascript" src="/js/jquery/jquery-ui-1.8.2.custom.min.js"></script>
+    <script type="text/javascript" src="/js/json2.min.js"></script>
+
+
+
+            <script type="text/javascript">
+                var AppPath = '';
+                var CurrencyId = 'MXN';
+                var LanguageId = 'es-MX';
+                var LocalAppPath = '';
+                var StaticContentURL = ''; // For static content called via javascript. Please fully qualify any links that use this.
+                var UrlKey = '7ap7omrzjm';
+                var ModuleId = '3';
+                var JSMode = 'min';
+                var AllowCookies = 'true';
+                var AllowedCookies = '';
+                var CultureInfo = {"name":"es-MX","number":{"decimalSeparator":".","groupingSeparator":","}}; var StandardFormats = {number: {Integer:'#,###,##0',ShortDecimal:'#,##0.0',StandardDecimal:'#,##0.00',LongDecimal:'#,##0.000',VeryLongDecimal:'#,##0.0000',Million:'#,##0.000m',AbbreviatedWhole:'#,##0.0abbr'}, date: {DayMonth:'dd/MM',FullMonth:'MMMM',FullTextMonthYear:'MMMM yyyy',NumberMonthYear:'MM yyyy',TextMonthShortYear:'MMM yy',TextMonthYear:'MMM yyyy',ShortTime:'HH:mm',LongTime:'HH:mm:ss',ShortDatePattern:'dd/MM/yyyy',LongDatePattern:'EEEE, dd de MMMM de yyyy',ShortDateTimePattern:'dd/MM/yyyy hh:mm a',LongDateTimePattern:'EEEE, dd de MMMM de yyyy hh:mm a'}};
+
+
+
+                //the trim function is in the scripts.js file, but in IE, sometimes the next code will call first before the js loaded.
+                function trimSpace(text){
+                    //trim whitespace from a string
+                    text = text.replace(/^\s+/g,''); //leading space
+                    return text.replace(/\s+$/g,''); //trailing space
+                }
+
+                if (trimSpace(StaticContentURL) != ''){
+                    while (StaticContentURL.substr(StaticContentURL.length - 1, 1) == "/")
+                        StaticContentURL = StaticContentURL.substr(0, StaticContentURL.length - 1)
+                }
+            </script>
+
+            <link rel="stylesheet" type="text/css" media="print" href="/styles/print.css?20150908" />
+
+
+        <style type="text/css">
+            #MasterMainContent {
+width:640px;
+}
+#content, .narrowLayout #snapshotBodyContent, .narrowLayout #SnapshotBodyContent {
+width:490px;
+}
+#MasterNavigationTop { display:none; }
+#MasterNavigationRight { display:none; }
+#MasterNavigationBottom { display:none; }
+#MasterNavigationLeft { display:none; }
+#MasterMainContentTop { display:none; }
+
+            .devFooter {
+                clear: both;
+                color: Red;
+                text-align: center;
+                font-size: 2em;
+                font-weight: bold;
+                padding: 25px;
+                border: 2px solid Black;
+            }
+        </style>
+        <style type="text/css">
+
+th.gridFundName {
+    width: 130px;
+}
+
+/*
+#ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlCNBVclassification:focus {
+    width: auto;
+    position: relative;
+}
+#ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlCNBVclassification:blur {
+    width: 45%;
+    position: relative;
+}
+*/
+#colAMIBSectorName
+{
+   width: 320px;
+}
+
+th.gridClosePrice {
+    width: 10%;
+}
+
+.msSearchOptionTextbox.msSearchOptionSmall .msSearchTextbox {
+    width: 150px;
+}
+
+</style>
+
+            <!--[if IE 8]>
+                <link rel="stylesheet" type="text/css" media="all" href="/styles/ie8.css?20150908"/>
+
+                <script type="text/javascript" src="/js/ie.js"></script>
+            <![endif]-->
+
+            <!--[if IE 7]>
+                <link rel="stylesheet" type="text/css" media="all" href="/styles/ie7.css?20150908"/>
+
+                <script type="text/javascript" src="/js/ie.js"></script>
+            <![endif]-->
+
+            <!--[if lte IE 6]>
+                <link rel="stylesheet" type="text/css" media="all" href="/styles/ie6.css?20150908"/>
+
+                <script type="text/javascript" src="/js/ie.js"></script>
+            <![endif]-->
+
+            <script type="text/javascript" src="/js/jquery/jquery.cookie.min.js"></script>
+            <script type="text/javascript" src="/js/cookie.min.js"></script>
+        </head>
+
+    <body id="ctl00_MasterBody" class="fundquickrank es esMX mxn">
+
+        <script type="text/tcl"></script>
+        <noscript>
+
+            <h3>You don't have Javascript enabled. For full functionality this page requires javascript to be enabled.<br /><br /></h3>
+        </noscript>
+
+
+
+        <div id="MasterNavigationTop">
+
+        </div>
+
+        <div id="MasterMiddle">
+            <div id="MasterNavigationLeft">
+
+            </div>
+
+            <div id="MasterMainContent">
+                <div id="MasterMainContentTop">
+
+                </div>
+                <div id="MasterMainNavigationTop">
+
+                </div>
+
+                <form method="post" action="/7ap7omrzjm/fundquickrank/default.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="ctl00_ContentPlaceHolder1_aFundQuickrankControl_scrtmgrFundQuickrank_HiddenField" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_scrtmgrFundQuickrank_HiddenField" value="" />
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=2onTBaHWgXqK_1ovvu9FjtCU58g8cSUrt0sUqJXdydWmV-ZOVuosbkHveMhZbSy4ycs8OhqzcViGETDZfE1pqLM_cFesnD1GIr3868W5KyY1&amp;t=635586505120000000" type="text/javascript"></script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+var HasDocOptions={DialogLabel:"Please select required document:",DocLibClientId:"clientid=cnbv&key=7ad0996eb0eb3b5a",PrimaryAndFallbackLanguages:"es-MX|en",MarketFilter:"",FallbackMessage:"Please be advised your requested language is not available, \n the document will be displayed in en. \n \n Press Ok to continue, or Cancel to stay on the current page.",DateLabel:"Date"};var histNavOptions={LimitPrices:"5",NoOfMonths:"6",NavOptionsLabel:"NavOptionsLabel"};var searchCriteria = '{"OtherSettings_DocumentLanguageId":"0L00000408","OtherSettings_DocumentFallbackLanguageId":"","OtherSettings_IsMonthEnd":false,"OtherSettings_UseCustomFundNames":false,"OtherSettings_CustomIsFavourite":false,"OtherSettings_MiFIDPeriodMonths":0,"OtherSettings_UseGBX":true,"OtherSettings_ResearchLanguageFallbackLogic":"OnlyRequestedLanguage","OtherSettings_ResearchReportLanguageFilter":"","OtherSettings_DocumentLanguageFallbackLogic":"onlyrequestedlanguage","OtherSettings_DocumentLibraryLanguageFilter":"0L00000408|0L00000122","OtherSettings_DocumentLibraryMarketFilter":"","OtherSettings_ForceGFRSuppress":false}';//]]>
+</script>
+
+<script src="/ScriptResource.axd?d=OKAPS5EZnNbhFUCVv9XcbJ-wBy6K1tSsgCIxjaHBsTF72fRIlw9pHiUiGHbl0RMNhQgDYHRN7QWHYkl3fQMLCj_yqe5gdH_-tZRaWNsDRfN_VwchTTM2WPABm_L4BuQT0&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=AlRe0yoOpU3F3fFCokP7zIEGZPxPUVypST0bYr05CbOg0lMBwLK3qfui48ON2OttAMqoPcL-x_oubJg4sQm94wMSTREz5JY01L3rc3Ipkm-xTaD1Ds-NhVkQ_fbLxnlzkjjotsSnEcvEdjrRWU4MSg2&amp;t=ffffffffecf8d3f2" type="text/javascript"></script>
+<div>
+
+    <input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" />
+    <input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="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" />
+</div>
+                    <div><a id="top"></a></div>
+
+
+
+<div id="MainDiv">
+
+    <div id="divLoading" class="loadingDiv hidden">
+        <img id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_imgLoader" src="/img/loader.gif" alt="" style="border-width:0px;" />
+    </div>
+
+
+
+
+<div id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_divTitleBar" class="ms_titlebar msTitleBar clearfix">
+    <div class="floatLeft">
+
+        <div id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_divTitleBarTitle" class="ms_titlebar_title msTitleBarTitle">
+            <h1>
+                Buscador Rápido de Fondos
+            </h1>
+        </div>
+    </div>
+
+    <div class="floatRight">
+        <div id="divTitleBarOptions" class="ms_titlebar_dropdowns msTitleBarOptions noPrint">
+
+
+
+        </div>
+
+
+    </div>
+
+    <script type="text/javascript">
+    //<![CDATA[
+        var btnTitleBarCurrencyLanguage = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_btnTitleBarCurrencyLanguage',
+            btnTitleBarTools = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_btnTitleBarTools',
+            ddlTitleBarCurrency = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_ddlTitleBarCurrency',
+            ddlTitleBarLanguage = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_ddlTitleBarLanguage',
+            ddlTitleBarTools = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_ddlTitleBarTools',
+            divTitleBar = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_divTitleBar',
+            divTitleBarBack = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_divTitleBarBack',
+            divTitleBarHelp = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_divTitleBarHelp',
+            divTitleBarOptions = 'divTitleBarOptions',
+            divTitleBarOptionsCurrencyLanguage = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_divTitleBarOptionsCurrencyLanguage',
+            divTitleBarOptionsTools = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_divTitleBarOptionsTools',
+            divTitleBarTitle = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_divTitleBarTitle',
+            lblTitleBarCurrency = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_lblTitleBarCurrency',
+            lblTitleBarLanguage = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_lblTitleBarLanguage',
+            lblTitleBarTools = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_lblTitleBarTools',
+            lnkTitleBarBackButton = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_lnkTitleBarBackButton',
+            lnkTitleBarHelp = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msTopBar_lnkTitleBarHelp';
+
+        function toolsTitleBarChangeTool(selectedToolObject){
+            var path = '';
+            switch (parseInt(selectedToolObject.value)){
+
+            }
+            if (trim(path) != '') window.location = unescape(path);
+        }
+
+        function navigateTo(siteNo){
+            if (window.history.length > 0){
+                window.history.go(siteNo);
+            }else{
+                //IE workaround to avoid dialog
+                //this is not working for FF
+                window.open('', '_parent', '');
+                window.close();
+            }
+        }
+
+        function hideBackButton(){
+            var msReferrer = "False";
+            if(msReferrer){
+                msReferrer = msReferrer.toLowerCase();
+                if (msReferrer){
+                    var backButtonContainer = $('#' + divTitleBarBack);
+                    if(backButtonContainer.length > 0){
+                        var backButton = $('#' + lnkTitleBarBackButton);
+                        if (backButton.length > 0){
+                            var minLength = 2;
+                            if (navigator.userAgent.toLowerCase().indexOf("msie") != -1) minLength = 1;
+                            if (window.history.length < minLength){
+                                backButtonContainer.hide();
+                                return;
+                            }
+
+                            var backToClick = backButton.attr('onclick');
+                            var backTo = new String(backToClick);
+                            backTo = backTo.substring((backTo.indexOf("navigateTo(") + 11),(backTo.indexOf(")",(backTo.indexOf("navigateTo(") + 11))));
+                            backTo = parseInt(backTo,10);
+                            if (window.history.length + backTo < minLength - 1) backButtonContainer.remove();
+                        }
+                    }
+                }
+            }
+        }
+
+        hideBackButton();
+
+        var ShowHelpIcon = false;
+        if (ShowHelpIcon){
+            if ($('#' + divTitleBarHelp + ' #helpDiv').length > 0){
+                _positionDivId = divTitleBar;
+                _helpLink = '/7ap7omrzjm/HelpContent/helpsection.aspx?HelpSectionKey=HelpQuickrank&LanguageId=es-MX';
+                InitHelp();
+            }
+        }
+    //]]>
+    </script>
+</div>
+
+    <div id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlSearchCriteria" class="ms_toolbar msToolBar search_criteria_panel msSearchCriteriaPanel clearfix" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;ctl00_ContentPlaceHolder1_aFundQuickrankControl_btnSearch&#39;)">
+
+        <span id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblSearchCriteriaStart" class="hidden">(Start of Search Criteria)</span>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlCompany" class="search_panel_select search_panel_select_company msSearchOption msSearchOptionSelect msSearchOptionCompany">
+
+            <label for="ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlCompany" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblCompany" class="msSearchLabel msSearchLabelCompany">Operadora</label>
+            <select name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$ddlCompany" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlCompany" class="msSearchSelect msSearchSelectCompany">
+            <option selected="selected" value="">Todas las operadoras</option>
+            <option value="">-------------------------</option>
+            <option value="0C00001LDZ">BBVA Bancomer Gesti&#243;n SA de CV</option>
+            <option value="0C00001KEI">CI Fondos SA de CV</option>
+            <option value="0C00001REU">Compass Investments de M&#233;xico SA de CV</option>
+            <option value="0C00001NFD">Finaccess M&#233;xico SA de CV</option>
+            <option value="0C00001ORJ">Fondos Banorte IXE SA de CV</option>
+            <option value="0C00001SG1">Fondos de Inversion Afirme SA de CV</option>
+            <option value="0C00001PWZ">Fondos de Inversi&#243;n Multiva SA de CV</option>
+            <option value="0C00001V26">Franklin Templeton AM M&#233;xico SA de CV</option>
+            <option value="0C00001NSY">GBM Administradora de Activos SA de CV</option>
+            <option value="0C00001NVL">Gesti&#243;n Santander SA de CV</option>
+            <option value="0C00001ODG">HSBC Global AM (M&#233;xico) SA de CV</option>
+            <option value="0C00001L1V">Impulsora de Fondos Banamex SA de CV</option>
+            <option value="0C00001OM4">Interacciones Sociedad Op de SI SA de CV</option>
+            <option value="0C00006HKL">Intercam fondos SA de CV</option>
+            <option value="0C00001OQ1">Invex Operadora SA de CV</option>
+            <option value="0C00001PT2">Monex Operadora de Fondos SA de CV</option>
+            <option value="0C00001RLI">Old Mutual Operadora de Fondos, S.A. de </option>
+            <option value="0C00001QRQ">Operadora Actinver SA de CV</option>
+            <option value="0C00001PY0">Operadora de Fondos Nafinsa SA de CV</option>
+            <option value="0C00001OIK">Operadora Inbursa de S.de Inv. SA de CV</option>
+            <option value="0C00001PQK">Operadora Mifel SA de CV</option>
+            <option value="0C00001SFY">Operadora Valmex de S. de Inv. SA de CV</option>
+            <option value="0C00001QPJ">Principal Fondos de Inversi&#243;n SA de CV</option>
+            <option value="0C00001RC5">Scotia Fondos SA de CV</option>
+            <option value="0C00001NFH">Somoza Finamex Inversiones SA de CV</option>
+            <option value="0C00001OK9">SURA Investment Management Mex SA de CV</option>
+            <option value="0C00001SGB">VALUE Operadora de S. de Inv. SA de CV</option>
+            <option value="0C00001TEY">Vector Fondos SA de CV</option>
+
+        </select>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ContentPlaceHolder1$aFundQuickrankControl$scrtmgrFundQuickrank', 'aspnetForm', [], [], [], 90, 'ctl00');
+    //]]>
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlCNBVClassification" class="search_panel_select msSearchOption msSearchOptionSelect msSearchOptionCnbvClassification">
+
+            <label for="ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlCNBVClassification" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblCNBVClassification" class="msSearchLabel msSearchLabelCnbvClassification">CNBVclassification</label>
+            <select name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$ddlCNBVClassification" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlCNBVClassification" class="msSearchSelect msSearchSelectCnbvClassification">
+            <option selected="selected" value="">Clasificaci&#243;n</option>
+            <option value="">------------------</option>
+            <option value="LC00002460">Cobertura Cambiaria - Especializada en cobertura</option>
+            <option value="LC00002461">Com&#250;n - Agresivo</option>
+            <option value="LC00002409">Com&#250;n - Balanceado</option>
+            <option value="LC00002410">Com&#250;n - Bancario y gubernamental</option>
+            <option value="LC00002411">Com&#250;n - Bancario, gubern. y privado</option>
+            <option value="LC00002412">Com&#250;n - Discrecional</option>
+            <option value="LC00002413">Com&#250;n - Espec. En acciones de EUA</option>
+            <option value="LC00002414">Com&#250;n - Espec. En acciones de la BMV</option>
+            <option value="LC00002416">Com&#250;n - Espec. en papel gubernamental</option>
+            <option value="LC00002417">Com&#250;n - Especializada en cobertura</option>
+            <option value="LC00002418">Com&#250;n - Indizado al IPC</option>
+            <option value="LC00002419">Com&#250;n - Largo plazo</option>
+            <option value="LC00002420">Com&#250;n - Mercado de dinero</option>
+            <option value="LC00002421">Com&#250;n - No disponible</option>
+            <option value="LC00002422">Com&#250;n - Peque&#241;a y mediana empresa</option>
+            <option value="LC00002423">Com&#250;n - Preponderantemente en deuda</option>
+            <option value="LC00002425">Deuda PF - Bancario y gubernamental</option>
+            <option value="LC00002426">Deuda PF - Bancario y privado</option>
+            <option value="LC00002427">Deuda PF - Bancario, gubern. y privado</option>
+            <option value="LC00002428">Deuda PF - Corto Plazo</option>
+            <option value="LC00002429">Deuda PF - Discrecional</option>
+            <option value="LC00002430">Deuda PF - Espec. En papel bancario</option>
+            <option value="LC00002431">Deuda PF - Espec. en papel gubernamental</option>
+            <option value="LC00002432">Deuda PF - Espec. En valores privados</option>
+            <option value="LC00002433">Deuda PF - Especializada en Cedevis</option>
+            <option value="LC00002434">Deuda PF - Especializada en cobertura</option>
+            <option value="LC00002435">Deuda PF - Especializada en tasa real</option>
+            <option value="LC00002436">Deuda PF - Mercado de dinero</option>
+            <option value="LC00002439">Deuda PM - Agresivo</option>
+            <option value="LC00002440">Deuda PM - Bancario y gubernamental</option>
+            <option value="LC00002441">Deuda PM - Bancario, gubern. y privado</option>
+            <option value="LC00002443">Deuda PM - Espec. En papel bancario</option>
+            <option value="LC00002444">Deuda PM - Espec. en papel gubernamental</option>
+            <option value="LC00002445">Deuda PM - Especializada en tasa real</option>
+            <option value="LC00002447">Deuda PM - Mercado de dinero</option>
+            <option value="LC00002457">Deuda PM no contribuyente  - Bancario y privado</option>
+            <option value="LC00002458">Deuda PM no contribuyente  - Discrecional</option>
+            <option value="LC00002450">Deuda PM no contribuyente - Agresivo</option>
+            <option value="LC00002451">Deuda PM no contribuyente - Bancario y gubernamental</option>
+            <option value="LC00002452">Deuda PM no contribuyente - Espec. en papel bancario</option>
+            <option value="LC00002453">Deuda PM no contribuyente - Espec. en papel gubernamental</option>
+            <option value="LC00002424">Dueda PF - Agresivo</option>
+
+        </select>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlMexicanInvestorClassification" class="search_panel_small search_panel_select msSearchOption msSearchOptionSmall msSearchOptionSelect msSearchOptionMexInvestorClassification">
+
+            <label for="ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlMexicanInvestorClassification" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblMexicanInvestorClassification" class="msSearchLabel msSearchLabelMexInvestorClassification">Pos. adquirentes</label>
+            <select name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$ddlMexicanInvestorClassification" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlMexicanInvestorClassification" class="msSearchSelect msSearchSelectMexInvestorClassification">
+            <option selected="selected" value="">Pos. adquirentes</option>
+            <option value="">---------------------</option>
+            <option value="1">Personas f&#237;sicas</option>
+            <option value="2">Personas morales</option>
+            <option value="4">Fondo de fondos</option>
+            <option value="5">No contribuyentes</option>
+
+        </select>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlSearchKey" class="search_panel_small search_panel_text search_panel_text_box_search_key msSearchOption msSearchOptionSmall msSearchOptionTextbox msSearchOptionTextSearch">
+
+            <label for="ctl00_ContentPlaceHolder1_aFundQuickrankControl_txtSearchKey" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblSearchKey" class="msSearchLabel msSearchLabelTextSearch">Search On Word</label>
+            <input name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$txtSearchKey" type="text" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_txtSearchKey" title="Clave de pizarra o ISIN" class="textbox msSearchTextbox msSearchTextboxTextSearch" placeholder="Clave de pizarra o ISIN" />
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="search_panel_small search_panel_button msSearchOption msSearchOptionSmall msSearchOptionButton">
+            <input type="submit" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$btnSearch" value="Ir" onclick="resetPostBackVariables();" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_btnSearch" title="Ir" class="ms_submit_button msButton msButtonSubmit" />
+            <input type="hidden" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$hdnFilterBySelection" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_hdnFilterBySelection" />
+        </div>
+        <span id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblSearchCriteriaEnd" class="hidden">(End of Search Criteria)</span>
+
+</div>
+
+
+
+    <div class="ms_tab_bar msTabBar"><span class="hidden">(Start of View Menu)</span><div><ul class="clearfix"><li><a id="TabSnapshot" class="active">General</a></li></ul></div><span class="hidden">(End of View Menu)</span></div>
+
+    <div id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlActionMenu" class="ms_action_menu msActionMenu">
+
+        <span id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblActionMenuStart" class="hidden">(Start of Action Menu)</span>
+        <ul class="clearfix">
+            <li id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lstActionMenuCompare" class="msActionMenuCompare">
+                <a id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lnkCompare" title="Comparar fondos (máx. 4)" class="compare" onclick="postMenuAction(&#39;FundCompare&#39;);">Comparar</a>
+            </li>
+
+
+
+
+
+
+
+            <li id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lstActionMenuDeselect" class="msActionMenuDeselect">
+                <a id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lnkDeselect" title="Quitar todos" class="deselect" onclick="postMenuAction(&#39;DeselectAll&#39;);">Quitar todos</a>
+            </li>
+
+
+
+
+
+
+
+        </ul>
+        <span id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblActionMenuEnd" class="hidden">(End of Action Menu)</span>
+
+</div>
+
+
+
+
+
+    <!-- Insurance Wrapper (pension) -->
+
+
+
+    <!-- Fund not available information -->
+
+
+    <div class="ms_panel msPanel">
+        <span id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblTableStart" class="hidden">(Start of Results Table)</span>
+        <div>
+    <table class="gridView tabSnapshot" border="0" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult">
+        <tr class="gridHeader gridHeaderUnderline">
+            <th class="gridCheckbox" scope="col">&nbsp;</th><th class="gridHeaderText gridFundName Shrink" id="colName" scope="col"><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult&#39;,&#39;Sort$Name&#39;)">Clave de pizarra</a><a class="gridArrow gridArrowASC" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult&#39;,&#39;Sort$Name&#39;)"><img src="/img/clear.gif" alt="" style="border-width:0px;" /></a></th><th class="gridHeaderText gridAmibSectorName" id="colAMIBSectorName" scope="col"><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult&#39;,&#39;Sort$AMIBSectorName&#39;)">Clasificación</a><a class="gridArrow gridArrowUnsorted" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult&#39;,&#39;Sort$AMIBSectorName&#39;)"><img src="/img/clear.gif" alt="" style="border-width:0px;" /></a></th><th class="gridHeaderNumeric gridM12" id="colReturnM12" scope="col"><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult&#39;,&#39;Sort$ReturnM12&#39;)">% Rto. 1 año</a><a class="gridArrow gridArrowUnsorted" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult&#39;,&#39;Sort$ReturnM12&#39;)"><img src="/img/clear.gif" alt="" style="border-width:0px;" /></a></th><th title="Close Price" class="gridHeaderNumeric gridClosePrice" id="colClosePrice" scope="col">Precio<br/>cierre</th><th class="gridHeaderText gridClosePriceCurrency" id="col_CurrencyId" scope="col"><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult&#39;,&#39;Sort$_CurrencyId&#39;)"></a></th>
+        </tr><tr class="gridItem gridItemFirst" id="rowF00000W5D8">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl02_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl02$chkFund" onclick="selectFund(this.checked,&#39;F00000W5D8&#39;,&#39;F00000W5D8]2]0]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F00000W5D8\&quot;,\&quot;securitytoken\&quot;:\&quot;F00000W5D8]2]0]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;+CIBOLS BF\&quot;,\&quot;isin\&quot;:\&quot;MX52CI0L0057\&quot;,\&quot;performanceid\&quot;:\&quot;0P00016HNW\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIBOLS BF-7" href="../snapshot/snapshot.aspx?id=F00000W5D8&amp;SecurityToken=F00000W5D8%5d2%5d0%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=0&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIBOLS BF-7</a></td><td class="msDataText gridAmibSectorName">Com&#250;n - Agresivo</td><td class="msDataNumeric gridM12"><span class='ReturnZero'>-</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.86632</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem gridAlternateItem" id="rowF000001ZJ2">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl03_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl03$chkFund" onclick="selectFund(this.checked,&#39;F000001ZJ2&#39;,&#39;F000001ZJ2]2]1]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F000001ZJ2\&quot;,\&quot;securitytoken\&quot;:\&quot;F000001ZJ2]2]1]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;VCBGUB BE-\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0K0027\&quot;,\&quot;performanceid\&quot;:\&quot;0P0000G5K5\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIGUB BE-1" href="../snapshot/snapshot.aspx?id=F000001ZJ2&amp;SecurityToken=F000001ZJ2%5d2%5d1%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=1&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIGUB BE-1</a></td><td class="msDataText gridAmibSectorName">Deuda PM - Espec. en papel gubernamental</td><td class="msDataNumeric gridM12"><span class='ReturnPositive'>2.80</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.65584</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem" id="rowF00000QAGK">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl04_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl04$chkFund" onclick="selectFund(this.checked,&#39;F00000QAGK&#39;,&#39;F00000QAGK]2]1]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F00000QAGK\&quot;,\&quot;securitytoken\&quot;:\&quot;F00000QAGK]2]1]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;+CIGUB BE-\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0K0035\&quot;,\&quot;performanceid\&quot;:\&quot;0P0000ZAOM\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIGUB BE-2" href="../snapshot/snapshot.aspx?id=F00000QAGK&amp;SecurityToken=F00000QAGK%5d2%5d1%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=1&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIGUB BE-2</a></td><td class="msDataText gridAmibSectorName">Deuda PM - Espec. en papel gubernamental</td><td class="msDataNumeric gridM12"><span class='ReturnPositive'>2.20</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.58447</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem gridAlternateItem" id="rowF00000MEPV">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl05_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl05$chkFund" onclick="selectFund(this.checked,&#39;F00000MEPV&#39;,&#39;F00000MEPV]2]1]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F00000MEPV\&quot;,\&quot;securitytoken\&quot;:\&quot;F00000MEPV]2]1]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;+CIGUB BE3\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0K0043\&quot;,\&quot;performanceid\&quot;:\&quot;0P0000T2VX\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIGUB BE-3" href="../snapshot/snapshot.aspx?id=F00000MEPV&amp;SecurityToken=F00000MEPV%5d2%5d1%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=1&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIGUB BE-3</a></td><td class="msDataText gridAmibSectorName">Deuda PM - Espec. en papel gubernamental</td><td class="msDataNumeric gridM12"><span class='ReturnPositive'>2.20</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.51416</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem" id="rowF000002MWZ">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl06_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl06$chkFund" onclick="selectFund(this.checked,&#39;F000002MWZ&#39;,&#39;F000002MWZ]2]1]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F000002MWZ\&quot;,\&quot;securitytoken\&quot;:\&quot;F000002MWZ]2]1]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;+CIGUB BE5\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0K0050\&quot;,\&quot;performanceid\&quot;:\&quot;0P0000JLTP\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIGUB BE-5" href="../snapshot/snapshot.aspx?id=F000002MWZ&amp;SecurityToken=F000002MWZ%5d2%5d1%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=1&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIGUB BE-5</a></td><td class="msDataText gridAmibSectorName">Deuda PM - Espec. en papel gubernamental</td><td class="msDataNumeric gridM12"><span class='ReturnPositive'>1.96</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.55951</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem gridAlternateItem" id="rowF00000VPQI">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl07_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl07$chkFund" onclick="selectFund(this.checked,&#39;F00000VPQI&#39;,&#39;F00000VPQI]2]0]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F00000VPQI\&quot;,\&quot;securitytoken\&quot;:\&quot;F00000VPQI]2]0]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;+CIGUB BF-\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0K00B4\&quot;,\&quot;performanceid\&quot;:\&quot;0P00015W0X\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIGUB BF-0" href="../snapshot/snapshot.aspx?id=F00000VPQI&amp;SecurityToken=F00000VPQI%5d2%5d0%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=0&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIGUB BF-0</a></td><td class="msDataText gridAmibSectorName">Deuda PM - Espec. en papel gubernamental</td><td class="msDataNumeric gridM12"><span class='ReturnZero'>-</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.55416</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem" id="rowF00000VPQJ">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl08_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl08$chkFund" onclick="selectFund(this.checked,&#39;F00000VPQJ&#39;,&#39;F00000VPQJ]2]0]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F00000VPQJ\&quot;,\&quot;securitytoken\&quot;:\&quot;F00000VPQJ]2]0]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;+CIGUB BF-\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0K00D0\&quot;,\&quot;performanceid\&quot;:\&quot;0P00015W0Y\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIGUB BF-4" href="../snapshot/snapshot.aspx?id=F00000VPQJ&amp;SecurityToken=F00000VPQJ%5d2%5d0%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=0&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIGUB BF-4</a></td><td class="msDataText gridAmibSectorName">Deuda PM - Espec. en papel gubernamental</td><td class="msDataNumeric gridM12"><span class='ReturnZero'>-</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.48658</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem gridAlternateItem" id="rowF000002MX1">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl09_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl09$chkFund" onclick="selectFund(this.checked,&#39;F000002MX1&#39;,&#39;F000002MX1]2]1]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F000002MX1\&quot;,\&quot;securitytoken\&quot;:\&quot;F000002MX1]2]1]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;PRONOG BF-\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0K00E8\&quot;,\&quot;performanceid\&quot;:\&quot;0P0000JLTR\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIGUB BF-5" href="../snapshot/snapshot.aspx?id=F000002MX1&amp;SecurityToken=F000002MX1%5d2%5d1%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=1&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIGUB BF-5</a></td><td class="msDataText gridAmibSectorName">Deuda PM - Espec. en papel gubernamental</td><td class="msDataNumeric gridM12"><span class='ReturnPositive'>1.33</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.46421</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem" id="rowF000002DRH">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl10_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl10$chkFund" onclick="selectFund(this.checked,&#39;F000002DRH&#39;,&#39;F000002DRH]2]1]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F000002DRH\&quot;,\&quot;securitytoken\&quot;:\&quot;F000002DRH]2]1]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;+CIGUB BF7\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0K00F5\&quot;,\&quot;performanceid\&quot;:\&quot;0P0000IS8L\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIGUB BF-7" href="../snapshot/snapshot.aspx?id=F000002DRH&amp;SecurityToken=F000002DRH%5d2%5d1%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=1&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIGUB BF-7</a></td><td class="msDataText gridAmibSectorName">Deuda PM - Espec. en papel gubernamental</td><td class="msDataNumeric gridM12"><span class='ReturnPositive'>0.72</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.40762</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem gridAlternateItem" id="rowF00000NRBT">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl11_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl11$chkFund" onclick="selectFund(this.checked,&#39;F00000NRBT&#39;,&#39;F00000NRBT]2]0]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F00000NRBT\&quot;,\&quot;securitytoken\&quot;:\&quot;F00000NRBT]2]0]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;+CIGUB BM-\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0K00G3\&quot;,\&quot;performanceid\&quot;:\&quot;0P0000VGCD\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIGUB BM-0" href="../snapshot/snapshot.aspx?id=F00000NRBT&amp;SecurityToken=F00000NRBT%5d2%5d0%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=0&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIGUB BM-0</a></td><td class="msDataText gridAmibSectorName">Deuda PM - Espec. en papel gubernamental</td><td class="msDataNumeric gridM12"><span class='ReturnZero'>-</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.53092</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem" id="rowF00000S7NB">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl12_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl12$chkFund" onclick="selectFund(this.checked,&#39;F00000S7NB&#39;,&#39;F00000S7NB]2]1]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F00000S7NB\&quot;,\&quot;securitytoken\&quot;:\&quot;F00000S7NB]2]1]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;+CIGUB BM-\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0K00I9\&quot;,\&quot;performanceid\&quot;:\&quot;0P00011HGR\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIGUB BM-2" href="../snapshot/snapshot.aspx?id=F00000S7NB&amp;SecurityToken=F00000S7NB%5d2%5d1%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=1&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIGUB BM-2</a></td><td class="msDataText gridAmibSectorName">Deuda PM - Espec. en papel gubernamental</td><td class="msDataNumeric gridM12"><span class='ReturnPositive'>2.07</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.50853</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem gridAlternateItem" id="rowF000001ZIQ">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl13_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl13$chkFund" onclick="selectFund(this.checked,&#39;F000001ZIQ&#39;,&#39;F000001ZIQ]2]1]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F000001ZIQ\&quot;,\&quot;securitytoken\&quot;:\&quot;F000001ZIQ]2]1]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;VCBGUB BM-\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0K00J7\&quot;,\&quot;performanceid\&quot;:\&quot;0P0000G5JT\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIGUB BM-3" href="../snapshot/snapshot.aspx?id=F000001ZIQ&amp;SecurityToken=F000001ZIQ%5d2%5d1%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=1&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIGUB BM-3</a></td><td class="msDataText gridAmibSectorName">Deuda PM - Espec. en papel gubernamental</td><td class="msDataNumeric gridM12"><span class='ReturnPositive'>1.95</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.53637</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem" id="rowF000002MX2">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl14_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl14$chkFund" onclick="selectFund(this.checked,&#39;F000002MX2&#39;,&#39;F000002MX2]2]1]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F000002MX2\&quot;,\&quot;securitytoken\&quot;:\&quot;F000002MX2]2]1]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;+CIGUB BM5\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0K00K5\&quot;,\&quot;performanceid\&quot;:\&quot;0P0000JLTS\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIGUB BM-5" href="../snapshot/snapshot.aspx?id=F000002MX2&amp;SecurityToken=F000002MX2%5d2%5d1%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=1&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIGUB BM-5</a></td><td class="msDataText gridAmibSectorName">Deuda PM - Espec. en papel gubernamental</td><td class="msDataNumeric gridM12"><span class='ReturnPositive'>1.34</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.47701</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem gridAlternateItem" id="rowF00000HHII">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl15_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl15$chkFund" onclick="selectFund(this.checked,&#39;F00000HHII&#39;,&#39;F00000HHII]2]1]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F00000HHII\&quot;,\&quot;securitytoken\&quot;:\&quot;F00000HHII]2]1]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;VCBPLUS BE\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0M0017\&quot;,\&quot;performanceid\&quot;:\&quot;0P0000O4S1\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIPLUS BE" href="../snapshot/snapshot.aspx?id=F00000HHII&amp;SecurityToken=F00000HHII%5d2%5d1%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=1&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIPLUS BE</a></td><td class="msDataText gridAmibSectorName">Dueda PF - Agresivo</td><td class="msDataNumeric gridM12"><span class='ReturnPositive'>1.42</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.74846</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem" id="rowF00000TEVI">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl16_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl16$chkFund" onclick="selectFund(this.checked,&#39;F00000TEVI&#39;,&#39;F00000TEVI]2]1]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F00000TEVI\&quot;,\&quot;securitytoken\&quot;:\&quot;F00000TEVI]2]1]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;+CIPLUS BF\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0M0066\&quot;,\&quot;performanceid\&quot;:\&quot;0P000131EP\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIPLUS BF-2" href="../snapshot/snapshot.aspx?id=F00000TEVI&amp;SecurityToken=F00000TEVI%5d2%5d1%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=1&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIPLUS BF-2</a></td><td class="msDataText gridAmibSectorName">Dueda PF - Agresivo</td><td class="msDataNumeric gridM12"><span class='ReturnPositive'>2.01</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.76523</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem gridAlternateItem" id="rowF00000QL7C">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl17_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl17$chkFund" onclick="selectFund(this.checked,&#39;F00000QL7C&#39;,&#39;F00000QL7C]2]1]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F00000QL7C\&quot;,\&quot;securitytoken\&quot;:\&quot;F00000QL7C]2]1]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;+CIPLUS BF\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0M0074\&quot;,\&quot;performanceid\&quot;:\&quot;0P0000ZSDL\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIPLUS BF-5" href="../snapshot/snapshot.aspx?id=F00000QL7C&amp;SecurityToken=F00000QL7C%5d2%5d1%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=1&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIPLUS BF-5</a></td><td class="msDataText gridAmibSectorName">Dueda PF - Agresivo</td><td class="msDataNumeric gridM12"><span class='ReturnPositive'>1.41</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.73880</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem" id="rowF00000459L">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl18_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl18$chkFund" onclick="selectFund(this.checked,&#39;F00000459L&#39;,&#39;F00000459L]2]1]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F00000459L\&quot;,\&quot;securitytoken\&quot;:\&quot;F00000459L]2]1]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;VCBPLUS BF\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0M0082\&quot;,\&quot;performanceid\&quot;:\&quot;0P0000M02M\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIPLUS BF-7" href="../snapshot/snapshot.aspx?id=F00000459L&amp;SecurityToken=F00000459L%5d2%5d1%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=1&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIPLUS BF-7</a></td><td class="msDataText gridAmibSectorName">Dueda PF - Agresivo</td><td class="msDataNumeric gridM12"><span class='ReturnPositive'>0.81</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.69647</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem gridAlternateItem" id="rowF00000QL7B">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl19_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl19$chkFund" onclick="selectFund(this.checked,&#39;F00000QL7B&#39;,&#39;F00000QL7B]2]1]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F00000QL7B\&quot;,\&quot;securitytoken\&quot;:\&quot;F00000QL7B]2]1]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;+CIPLUS BM\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0M0041\&quot;,\&quot;performanceid\&quot;:\&quot;0P0000ZSDK\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIPLUS BM-3" href="../snapshot/snapshot.aspx?id=F00000QL7B&amp;SecurityToken=F00000QL7B%5d2%5d1%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=1&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIPLUS BM-3</a></td><td class="msDataText gridAmibSectorName">Dueda PF - Agresivo</td><td class="msDataNumeric gridM12"><span class='ReturnPositive'>2.02</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.79094</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem" id="rowF00000JP5Q">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl20_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl20$chkFund" onclick="selectFund(this.checked,&#39;F00000JP5Q&#39;,&#39;F00000JP5Q]2]1]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F00000JP5Q\&quot;,\&quot;securitytoken\&quot;:\&quot;F00000JP5Q]2]1]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;VCBPLUS BM\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0M0058\&quot;,\&quot;performanceid\&quot;:\&quot;0P0000PSJ0\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIPLUS BM-5" href="../snapshot/snapshot.aspx?id=F00000JP5Q&amp;SecurityToken=F00000JP5Q%5d2%5d1%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=1&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIPLUS BM-5</a></td><td class="msDataText gridAmibSectorName">Dueda PF - Agresivo</td><td class="msDataNumeric gridM12"><span class='ReturnPositive'>0.81</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.69647</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr><tr class="gridItem gridAlternateItem gridItemLast" id="rowF00000W5D9">
+            <td class="gridCheckbox">
+                        <input id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult_ctl21_chkFund" type="checkbox" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$gridResult$ctl21$chkFund" onclick="selectFund(this.checked,&#39;F00000W5D9&#39;,&#39;F00000W5D9]2]0]FOMEX$$ALL_1414&#39;,&#39;{\&quot;fundid\&quot;:\&quot;F00000W5D9\&quot;,\&quot;securitytoken\&quot;:\&quot;F00000W5D9]2]0]FOMEX$$ALL_1414\&quot;,\&quot;symbol\&quot;:\&quot;+CIUSD BF-\&quot;,\&quot;isin\&quot;:\&quot;MX51CI0N0065\&quot;,\&quot;performanceid\&quot;:\&quot;0P00016HNX\&quot;}&#39;);" />
+                    </td><td class="msDataText gridFundName Shrink"><a title="+CIUSD BF-7" href="../snapshot/snapshot.aspx?id=F00000W5D9&amp;SecurityToken=F00000W5D9%5d2%5d0%5dFOMEX%24%24ALL_1414&amp;clearcache=true&amp;ClientFund=0&amp;LanguageId=es-MX&amp;CurrencyId=MXN&amp;UniverseId=FOMEX%24%24ALL_1414&amp;BaseCurrencyId=MXN" target="_self">+CIUSD BF-7</a></td><td class="msDataText gridAmibSectorName">Dueda PF - Agresivo</td><td class="msDataNumeric gridM12"><span class='ReturnZero'>-</span></td><td title="28/09/2015" class="msDataNumeric gridClosePrice">1.38375</td><td class="msDataText gridClosePriceCurrency">MXN</td>
+        </tr>
+    </table>
+</div>
+        <span id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblTableEnd" class="hidden">(End of Results Table)</span>
+    </div>
+
+    <div class="ms_page_bar msPagerBar">
+        <div class="clearfix">
+            <span id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblPagerStart" class="hidden">(Start of Pager)</span>
+            <div id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlTotalResults" class="ms_page_bar_results msPagerBarResults">
+
+                <strong>
+                    Resultados:
+                </strong>
+                2837
+
+</div>
+            <div class="floatRight clearfix">
+                <div class="ms_page_bar_perpage msPagerBarPerPage">
+                    <label for="ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlPageSize" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblView">Ver:</label>
+                    <select name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$ddlPageSize" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$aFundQuickrankControl$ddlPageSize\&#39;,\&#39;\&#39;)&#39;, 0)" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlPageSize">
+    <option selected="selected" value="20">20 por p&#225;g</option>
+    <option value="50">50 por p&#225;g</option>
+    <option value="100">100 por p&#225;g</option>
+    <option value="250">250 por p&#225;g</option>
+    <option value="500">500 por p&#225;g</option>
+
+</select>
+                </div>
+                <div class="ms_page_bar_pager msPagerBarPager">
+
+<!-- AspNetPager V6.0.0 for VS2005  Copyright:2003-2006 Webdiyer (www.webdiyer.com) -->
+<div id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_AspNetPager">
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="ms_page_custom_label msPagerBarXOfYLabel" valign="bottom" align="left" style="width:40%;"><span>1-20 de 2837</span></td><td valign="bottom" align="right" class="" style="width:60%;"><a class="pager_disabled disabled">Primero</a><span> | </span><a class="pager_disabled disabled">Ant</a><span> | </span><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$aFundQuickrankControl$AspNetPager&#39;,&#39;2&#39;)">Sig</a><span> | </span><a href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$aFundQuickrankControl$AspNetPager&#39;,&#39;142&#39;)">Últ.</a></td>
+        </tr>
+    </table>
+</div>
+<!-- AspNetPager V6.0.0 for VS2005 End -->
+
+
+                </div>
+
+            </div>
+            <span id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblPagerEnd" class="hidden">(End of Pager)</span>
+        </div>
+    </div>
+
+
+
+
+
+
+        <div id="ms_performance_disclaimer" class="msPerformanceDisclaimer">
+            <span id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblPerformanceDisclaimerStart" class="hidden">(Start of Performance Disclaimer)</span>Los precios se actualizan cada día laborable tras el cierre de los mercados y antes de las 11 p.m., y corresponden a los determinados por las Sociedades Valuadoras de Acciones de Sociedades de Inversión el día hábil previo. Las cifras de rendimiento se presentan en pesos mexicanos, corresponden a 1 año calendario y se calculan de precio a precio.
+<br/>
+La información presentada fue obtenida tanto de documentos públicos como de reportes regulatorios entregados a la CNBV; por lo que su exactitud o veracidad depende de la fuente original y su divulgación no implica la certificación sobre la bondad de la Sociedad de Inversión, así como tampoco constituyen recomendaciones para comprar, vender o mantener acciones de alguna Sociedad de Inversión, ni para llevar a cabo algún tipo de negocio u operación.
+<br/>
+La información relativa a la "Calidad de activos" y "Riesgo de mercado", corresponde a la calificación otorgada a la Sociedad de Inversión por parte de la Institución Calificadora de Valores correspondiente y su significado corresponde a las definiciones establecidas en la escala homogénea de calificaciones para sociedades de inversión.
+<br/>
+El VaR representa el percentil 1% más bajo de la distribución de rendimientos del fondo. Se determina en la CNBV, mediante un modelo histórico de 520 observaciones y con horizonte de retención de 1 día. FUENTES DE INFORMACIÓN: a) cartera de valores de los fondos; b) factores de riesgos de VALMER y Bloomberg.
+La clasificación por Riesgo y Gastos es respecto a la categoría a la cual pertenece el fondo y no a todos los fondos con acciones en circulación.<span id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblPerformanceDisclaimerEnd" class="hidden">(End of Performance Disclaimer)</span>
+        </div>
+
+
+
+
+<!-- start of disclaimer -->
+<script type="text/javascript">
+//<![CDATA[
+    var customDisclaimer = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msBottomDisclaimer_ms_disclaimer_custom_section';
+    var customDisclaimerInnerHTML = "";
+    var hdnUserId = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_msBottomDisclaimer_hdnUserId';
+//]]>
+</script>
+
+
+
+
+<!-- end of disclaimer -->
+</div>
+
+<div>
+    <input type="hidden" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$hdnSelectedFunds" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_hdnSelectedFunds" />
+    <input type="hidden" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$hdnSelectedIndex" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_hdnSelectedIndex" />
+    <input type="hidden" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$hdnFirstFundNavDate" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_hdnFirstFundNavDate" />
+    <input type="hidden" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$hdnCustomImageFileIds" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_hdnCustomImageFileIds" />
+    <input type="hidden" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$hdnSelectedSecurityCount" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_hdnSelectedSecurityCount" value="0" />
+    <input type="hidden" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$hdnTabs" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_hdnTabs" value="Snapshot" />
+</div>
+
+
+
+
+
+
+<div>
+    <input type="submit" name="ctl00$ContentPlaceHolder1$aFundQuickrankControl$btnHiddenSaveToList" value="Show" id="ctl00_ContentPlaceHolder1_aFundQuickrankControl_btnHiddenSaveToList" style="display:none" />
+</div>
+
+<script type="text/javascript" src="/js/jquery/jquery.format-1.3.min.js"></script>
+<script type="text/javascript">
+//<![CDATA[
+
+    var firstTimeAddedFund = true,
+        IndexSplitChar = '|',
+        lblHide = 'Hide',
+        lblShow = 'Show';
+
+    var ActionMenuShowCombinedReportLink = 'False',
+        ActionMenuShowMultipleKiidDocument = 'False',
+        ChartingTarget = '_self',
+        ChartMaxHoldings = '10',
+        CompareTarget = '_self',
+        CompareLink = '',
+        CustomCategory2DefaultValues ='',
+        FundCompareVersionToLinkTo = '4',
+        MultiplePdfReportMax = '5',
+        PerformanceCalcTarget = '',
+        PerformanceReportMaxHoldings = '',
+        PerformanceReportTarget = '_self',
+        PortfolioTarget = '_self',
+        PortfolioLink = '',
+        SelectedTab = 'Snapshot',
+        ShowMultiplePdfReportTarget = '_self',
+        SavedListSecuritiesDeleteMsg='Are you sure you want to remove these securities?',
+        XrayTarget = '_self';
+
+    var AddXRayLimitExceedError = 'Por favor, seleccione hasta 10 fondos.',
+        ChartingLimitExceedError = 'Por favor, no seleccione más de 10 fondos.',
+        SaveInvestmentListValidationError='SaveInvestmentListValidationError',
+        CompareFundLimitExceedError = 'Please select up to 4 funds',
+        DefaultSearchText = 'Clave de pizarra o ISIN',
+        DeleteConfirmMessage='DeleteConfirmMessage',
+        MultipleProfileLimitExceedError = 'Please select no more than 5 funds',
+        NoDocumentSelectedError = 'Please select documents.',
+        NoFundSelectedError = 'Por favor, seleccione fondos',
+        ArchiveReportNameEmptyError = 'Please provide an archive report name to complete the action.',
+        PerformanceReportLimitExceedError = '',
+        SaveToListValidationError='Please enter a name for saved list',
+        SaveAsToListValidationError='Please select a list',
+        XRayEditHoldingsPageSize = '10',
+        AllowAllFundsExport = false;
+
+    var divColumnSelectionPopup = 'divColumnSelectionPopup',
+        divFundUnavailable = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_divFundUnavailable',
+        divInformation = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_divInformation',
+        divLoading = 'divLoading',
+        divNoUniverseSelectedStart = 'divNoUniverseSelectedStart',
+
+        divPerformanceDisclaimer = 'divPerformanceDisclaimer',
+        frmColumnSelectionBox = 'frmColumnSelectionBox';
+
+    var lstActionMenuBuy = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lstActionMenuBuy',
+        lstActionMenuCalculator = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lstActionMenuCalculator',
+        lstActionMenuChart = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lstActionMenuChart',
+        lstActionMenuCombinedReport = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lstActionMenuCombinedReport',
+        lstActionMenuCompare = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lstActionMenuCompare',
+        lstActionMenuDeselect = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lstActionMenuDeselect',
+        lstActionMenuExcel = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lstActionMenuExcel',
+        lstActionMenuFilter = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lstActionMenuFilter',
+        lstActionMenuKiids = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lstActionMenuKiids',
+        lstActionMenuPerformance = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lstActionMenuPerformance',
+        lstActionMenuPortfolio = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lstActionMenuPortfolio',
+        lstActionMenuPrint = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lstActionMenuPrint',
+        lstActionMenuProfiles = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lstActionMenuProfiles',
+        lstActionMenuXRay = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lstActionMenuXRay',
+        lstActionMenuSaveToList = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lstActionMenuSaveToList';
+
+
+    var btnSearch = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_btnSearch';
+
+    var chkAr1 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_chkAr1',
+        chkAr2 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_chkAr2',
+        chkAr3 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_chkAr3',
+        chkAr4 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_chkAr4',
+        chkAr5 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_chkAr5',
+        chkCustomIsFavourite = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_chkCustomIsFavourite',
+        chkISAOption = chkISA = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_chkISA',
+        chkIsExchangeTradedShare = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_chkIsExchangeTradedShare',
+        chkIsSociallyResponsibleFund = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_chkIsSociallyResponsibleFund',
+        chkOpenedForNewInvestors = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_chkOpenedForNewInvestors',
+        chkPrimaryMarket = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_chkPrimaryMarket';
+
+    var ddlABISector = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlABISector',
+        ddlAIMCBoardCategory = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlAIMCBoardCategory',
+        ddlAIMCCategory = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlAIMCCategory',
+        ddlASGSector = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlASGSector',
+        ddlAvailableForSale = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlAvailableForSale',
+        ddlBaseCurrency = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlBaseCurrency',
+        ddlBrandingName = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlBrandingName',
+        ddlBroadCategoryType = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlBroadCategoryType',
+        ddlCategory = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlCategory',
+        ddlChileanAPVAndAPVC = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlChileanAPVAndAPVC',
+        ddlChileanInCompanyTransferWaiver = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlChileanInCompanyTransferWaiver',
+        ddlClientFunds = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlClientFunds',
+        ddlCNBVClassification = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlCNBVClassification',
+        ddlCompany = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlCompany',
+        ddlICbSector = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlIcbSector',
+        ddlCustomAttributes1 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlCustomAttributes1',
+        ddlCustomCategory = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlCustomCategory',
+        ddlCustomCategory2 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlCustomCategory2',
+        ddlCustomCategory3 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlCustomCategory3',
+        ddlCustomRisk = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlCustomRisk',
+        ddlMorningstarSrri = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlMorningstarSrri',
+        ddlDocumentLibraryLanguage = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlDocumentLibraryLanguage',
+        ddlEquityIndustry = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlEquityIndustry',
+        ddlEquitySector = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlEquitySector',
+        ddlExchange = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlExchange',
+        ddlExchangeRateCurrency = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlExchangeRateCurrency',
+        ddlFundGroupFilter1 = ddlFundGroup1 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlFundGroup1',
+        ddlFundGroupFilter2 = ddlFundGroup2 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlFundGroup2',
+        ddlFundGroupFilter3 = ddlFundGroup3 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlFundGroup3',
+        ddlGlobalCategory = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlGlobalCategory',
+        ddlIMASector = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlIMASector',
+        ddlInceptionYear = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlInceptionYear',
+        ddlIncOrAcc = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlIncOrAcc',
+        ddlInsuranceWrapper = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlInsuranceWrapper',
+        ddlInvestmentType = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlInvestmentType',
+        ddlInvestorType = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlInvestorType',
+        ddlISAOption = ddlISA = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlISA',
+        ddlItalianPensionFundSpecific = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlItalianPensionFundSpecific',
+        ddlLegalStructure = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlLegalStructure',
+        ddlMexicanInvestorClassification = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlMexicanInvestorClassification',
+        ddlPageSize = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlPageSize',
+        ddlPrimaryShareClass = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlPrimaryShareClass',
+        ddlQualifiedInvestment = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlQualifiedInvestment',
+        ddlSaveToList='ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlSaveToList',
+        ddlSECCharacteristic = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlSECCharacteristic',
+        ddlUniverse = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlUniverse';
+        ddlMaturity = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlMaturity';
+        ddlDomicile = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_ddlDomicile';
+
+    var hdnCustomImageFileIds = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_hdnCustomImageFileIds',
+        hdnFilterBySelection = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_hdnFilterBySelection',
+        hdnFirstFundNavDate = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_hdnFirstFundNavDate',
+        hdnSelectedFunds = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_hdnSelectedFunds',
+        hdnSelectedIndex= 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_hdnSelectedIndex',
+        hdnSelectedSecurityCount = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_hdnSelectedSecurityCount',
+        hdnTabs = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_hdnTabs';
+
+    var mpSavetoList='ctl00_ContentPlaceHolder1_aFundQuickrankControl_mpSavetoList';
+
+    var imgAr1 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_imgAr1',
+        imgAr2 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_imgAr2',
+        imgAr3 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_imgAr3',
+        imgAr4 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_imgAr4',
+        imgAr5 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_imgAr5';
+
+    var lblABISector = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblABISector',
+        lblAIMCBoardCategory = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblAIMCBoardCategory',
+        lblAIMCCategory = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblAIMCCategory',
+        lblAr1 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblAr1',
+        lblAr2 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblAr2',
+        lblAr3 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblAr3',
+        lblAr4 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblAr4',
+        lblAr5 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblAr5',
+        lblASGSector = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblASGSector',
+        lblBaseCurrency = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblBaseCurrency',
+        lblBrandingName = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblBrandingName',
+        lblBroadCategoryType = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblBroadCategoryType',
+        lblCategory = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblCategory',
+        lblChileanAPVAndAPVC = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblChileanAPVAndAPVC',
+        lblChileanInCompanyTransferWaiver = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblChileanInCompanyTransferWaiver',
+        lblQualifiedInvestment = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblQualifiedInvestment',
+        lblClientFunds = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblClientFunds',
+        lblCNBVClassification = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblCNBVClassification',
+        lblCompany = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblCompany',
+        lblIcbSector = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblIcbSector',
+        lblCustomAttributes1 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblCustomAttributes1',
+        lblCustomCategory1 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblCustomCategory',
+        lblCustomCategory2 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblCustomCategory2',
+        lblCustomCategory3 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblCustomCategory3',
+        lblCustomIsFavourite = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblCustomIsFavourite',
+        lblCustomRisk = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblCustomRisk',
+        lblMorningstarRating = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblMorningstarRating',
+        lblMorningstarSrri = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblMorningstarSrri',
+        lblDocumentLibraryLanguage = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblDocumentLibraryLanguage',
+        lblEquityIndustry = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblEquityIndustry',
+        lblEquitySector = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblEquitySector',
+        lblExchange = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblExchange',
+        lblFundGroup1 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblFundGroup1',
+        lblFundGroup2 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblFundGroup2',
+        lblFundGroup3 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblFundGroup3',
+        lblGlobalCategory = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblGlobalCategory',
+        lblIMASector = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblIMASector',
+        lblInceptionYear = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblInceptionYear',
+        lblIncOrAcc = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblIncOrAcc',
+        lblInsuranceWrapper = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblInsuranceWrapper',
+        lblInvestmentType = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblInvestmentType',
+        lblInvestorType = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblInvestorType',
+        lblIsExchangeTradedShare = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblIsExchangeTradedShare',
+        lblIsSociallyResponsibleFund = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblIsSociallyResponsibleFund',
+        lblItalianPensionFundSpecific = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblItalianPensionFundSpecific',
+        lblLegalStructure = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblLegalStructure',
+        lblMexicanInvestorClassification = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblMexicanInvestorClassification',
+        lblOpenedForNewInvestors = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblOpenedForNewInvestors',
+        lblPrimaryMarket = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblPrimaryMarket',
+        lblPrimaryShareClass = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblPrimaryShareClass',
+        lblSECCharacteristic = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblSECCharacteristic',
+        lblSearchKey = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblSearchKey',
+        lblTaxFreeSavings = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblTaxFreeSavings',
+        lblUniverse = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblUniverse',
+        lblView = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lblView';
+
+    var lnkBuy = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lnkBuy',
+        lnkCalculator = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lnkCalculator',
+        lnkChart = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lnkChart',
+        lnkCombinedReport = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lnkCombinedReport',
+        lnkFundCompare = lnkCompare = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lnkCompare',
+        lnkDeselect = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lnkDeselect',
+        lnkExportToExcel = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lnkExportToExcel',
+        lnkFilter = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lnkFilter',
+        lnkMultipleKiidReport = lnkKiids = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lnkKiids',
+        lnkPerformanceReport = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lnkPerformanceReport',
+        lnkPortfolio = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lnkPortfolio',
+        lnkPrint = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lnkPrint',
+        lnkProfiles = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lnkProfiles',
+        lnkSaveToList='ctl00_ContentPlaceHolder1_aFundQuickrankControl_lnkSaveToList',
+        lnkXray = lnkXRay = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_lnkXRay';
+
+    var pnlABISector = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlABISector',
+        pnlActionMenu = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlActionMenu',
+        pnlAIMCBoardCategory = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlAIMCBoardCategory',
+        pnlAIMCCategory = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlAIMCCategory',
+        pnlAnalystRating = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlAnalystRating',
+        pnlASGSector = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlASGSector',
+        pnlBaseCurrency = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlBaseCurrency',
+        pnlBrandingName = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlBrandingName',
+        pnlBroadCategoryType = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlBroadCategoryType',
+        pnlCategory = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlCategory',
+        pnlAsisaCategory='ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlAsisaCategory',
+        pnlChileanAPVAndAPVC = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlChileanAPVAndAPVC',
+        pnlChileanInCompanyTransferWaiver = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlChileanInCompanyTransferWaiver',
+        pnlQualifiedInvestment = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlQualifiedInvestment',
+        pnlClientFunds = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlClientFunds',
+        pnlCNBVClassification = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlCNBVClassification',
+        pnlCompany = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlCompany',
+        pnlIcbSector='ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlIcbSector',
+        pnlCustomAttributes1 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlCustomAttributes1',
+        pnlCustomCategory1 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlCustomCategory',
+        pnlCustomCategory2 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlCustomCategory2',
+        pnlCustomCategory3 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlCustomCategory3',
+        pnlCustomIsFavourite = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlCustomIsFavourite',
+        pnlCustomRisk = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlCustomRisk',
+        pnlMorningstarRating = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlMorningstarRating',
+        pnlMorningstarSrri = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlMorningstarSrri',
+        pnlDocumentLibraryLanguage = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlDocumentLibraryLanguage',
+        pnlEquityIndustry = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlEquityIndustry',
+        pnlEquitySector = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlEquitySector',
+        pnlExchange = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlExchange',
+        pnlFullView = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlFullView',
+        pnlFundGroup1 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlFundGroup1',
+        pnlFundGroup2 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlFundGroup2',
+        pnlFundGroup3 = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlFundGroup3',
+        pnlGlobalCategory = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlGlobalCategory',
+        pnlIMASector = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlIMASector',
+        pnlInceptionYear = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlInceptionYear',
+        pnlIncOrAcc = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlIncOrAcc',
+        pnlInsuranceCompanyInfo = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlInsuranceCompanyInfo',
+        pnlInsuranceWrapper = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlInsuranceWrapper',
+        pnlInvestmentType = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlInvestmentType',
+        pnlInvestorType = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlInvestorType',
+        pnlItalianPensionFundSpecific = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlItalianPensionFundSpecific',
+        pnlIsExchangeTradedShare = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlIsExchangeTradedShare',
+        pnlIsSociallyResponsibleFund = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlIsSociallyResponsibleFund',
+        pnlLegalStructure = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlLegalStructure',
+        pnlMexicanInvestorClassification = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlMexicanInvestorClassification',
+        pnlOpenedForNewInvestors = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlOpenedForNewInvestors',
+        pnlPrimaryMarket = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlPrimaryMarket',
+        pnlPrimaryShareClass = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlPrimaryShareClass',
+        pnlSearchCriteria = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlSearchCriteria',
+        pnlSECCharacteristic = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlSECCharacteristic',
+        pnlSearchKey = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlSearchKey',
+        pnlTaxFreeSchemes = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlTaxFreeSchemes',
+        pnlTotalResults = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlTotalResults',
+        pnlUniverse = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_pnlUniverse';
+    var txtSearchKey = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_txtSearchKey';
+    var gridResult ='ctl00_ContentPlaceHolder1_aFundQuickrankControl_gridResult';
+    var txtNewSaveToList='ctl00_ContentPlaceHolder1_aFundQuickrankControl_txtNewSaveToList';
+    var srMorningstarRating = 'ctl00_ContentPlaceHolder1_aFundQuickrankControl_srMorningstarRating';
+
+    var lblProspectus ='Prospecto';
+    var lblFactsheet ='Factsheet';
+    var lblProspectusPartI ='Prospectus Part I';
+    var lblProspectusPartII ='Prospectus Part II';
+    var lblProspectusPartIII ='Prospectus Part III';
+    var lblApplicationForm ='Application Form';
+    var lblAnnexToAppForm ='Annex to App Form';
+    var lblSuppToAnnexToAppForm ='Supp to Annex to App Form';
+    var lblKIID ='KIID';
+    var lblRuleBook ='RuleBook';
+    var lblFINRAReportDocument = 'FINRA Report';
+    var dateFormat='dd/MM/yyyy';
+
+    function resetForm(){
+        $('#aspnetForm').each (function(){
+            this.reset();
+        });
+    };
+
+
+
+
+
+    if (typeof ClientSpecificFunction == "function") ClientSpecificFunction();
+    addCheckedFunds();
+    loadSelectedFunds();
+    initInputPlaceholders();
+    //]]>
+</script>
+<!--script type="text/javascript" src="/js/quickrank.troubleshooting.js"></script-->
+
+
+
+
+
+<script type="text/javascript">
+//<![CDATA[
+(function() {var fn = function() {$get("ctl00_ContentPlaceHolder1_aFundQuickrankControl_scrtmgrFundQuickrank_HiddenField").value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();var $srMorningstarRating=$('#ctl00_ContentPlaceHolder1_aFundQuickrankControl_srMorningstarRating');$srMorningstarRating.find('ul.msStarRating a').click(function() {var $el=$(this); var r=$el.html();var rbCont=$('#ctl00_ContentPlaceHolder1_aFundQuickrankControl_srMorningstarRating_rblStarRating');if(rbCont.find('input[type=radio][value=' + r + ']').is(':checked')) {rbCont.find('input[type=radio]').prop('checked', false);$el.parent().parent().find('a').removeClass('msStarRatingCurrent');} else { rbCont.find('input[type=radio]').prop('checked', false);rbCont.find('input[type=radio][value=' + r + ']').prop('checked', true);$el.parent().parent().find('a').removeClass('msStarRatingCurrent');$el.addClass('msStarRatingCurrent'); }});//]]>
+</script>
+</form>
+
+                <div id="MasterMainContentBottom">
+                    <script type="text/javascript" language="javascript">
+
+jQuery(document).ready(function(){
+
+$('.msSearchSelectCnbvClassification option').each(function(){
+$(this).text($(this).text().replace('Soc. de Inv. ', '').replace('Instr. de ',''));
+});
+
+$('.gridAmibSectorName').each(function(){
+$(this).text($(this).text().replace('Soc. de Inv. ', '').replace('Instr. de ',''));
+});
+
+
+});
+
+</script>
+
+
+
+                </div>
+
+
+            </div>
+
+            <div id="MasterNavigationRight">
+
+            </div>
+        </div>
+
+        <div id="MasterNavigationBottom">
+
+        </div>
+
+
+
+
+    </body>
+
+</html>
