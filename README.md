@@ -14,16 +14,16 @@ Platform: x86_64-suse-linux-gnu (64-bit)
 >https://scrapy.org/
 
 
-### Simple search of mutual funds at the CNBV website:
+### Simple searcher of mutual funds at the CNBV website:
 >[http://www.cnbv.gob.mx/SECTORES-SUPERVISADOS/SOCIEDADES-DE-INVERSION/Buscador-de-Sociedades-de-Inversi%C3%B3n/Paginas/B%C3%A1sico.aspx](http://www.cnbv.gob.mx/SECTORES-SUPERVISADOS/SOCIEDADES-DE-INVERSION/Buscador-de-Sociedades-de-Inversi%C3%B3n/Paginas/B%C3%A1sico.aspx)
 
 
-### Web address of outsourced funds searcher to *Morningstar México*:
+### Web address of outsourced funds searcher to [*Morningstar México*](http://www.morningstar.com.mx):
 >[http://lt.morningstar.com/7ap7omrzjm/fundquickrank/default.aspx](http://lt.morningstar.com/7ap7omrzjm/fundquickrank/default.aspx)
 
 
-##Execution instructions
-####Script files:
+## Execution instructions
+#### Script files:
 * `cnbvt01/cnbvt01/`
   * `items.py`
   * `pipelines.py`
@@ -31,13 +31,13 @@ Platform: x86_64-suse-linux-gnu (64-bit)
 * `cnbvt01/cnbvt01/spiders/`
   * `cnbvt01_spider.py`
 
-####Requiriments configuration file:
+#### Requiriments configuration file:
 * `requirements.txt`
 
-####Output files:
+#### Output files:
 * `<funds_data_file>.json`
 
-####To execute the script:
+#### To execute the script:
 
 1. Verify that you have installed Python version 2.7 and the required packages listed in file `requirements.txt`
 2. Check that all the files are in the same directory and that you have reading and writing permissions
