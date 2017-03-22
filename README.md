@@ -14,6 +14,7 @@ Platform: x86_64-suse-linux-gnu (64-bit)
 >https://scrapy.org/
 
 
+## Data extraction web addresses:
 ### Simple searcher of mutual funds at the CNBV website:
 >[http://www.cnbv.gob.mx/SECTORES-SUPERVISADOS/SOCIEDADES-DE-INVERSION/Buscador-de-Sociedades-de-Inversi%C3%B3n/Paginas/B%C3%A1sico.aspx](http://www.cnbv.gob.mx/SECTORES-SUPERVISADOS/SOCIEDADES-DE-INVERSION/Buscador-de-Sociedades-de-Inversi%C3%B3n/Paginas/B%C3%A1sico.aspx)
 
