@@ -1,4 +1,4 @@
-# Webscraping project to extract and download all the Mexican investment funds registered and listed at the National Baking and Stock Commission (*Comisión Nacional Bancaria y de Valores*, CNBV), until October, 2015.
+# Webscraping project to extract and download all the Mexican investment funds registered and listed at the [National Banking and Stock Commission](http://www.cnbv.gob.mx/SECTORES-SUPERVISADOS/SOCIEDADES-DE-INVERSION/Buscador-de-Sociedades-de-Inversi%C3%B3n/Paginas/Buscador-de-Sociedades-de-Inversion.aspx) (CNBV, *Comisión Nacional Bancaria y de Valores*), until October, 2015.
 
 ## Python version 2.7
 Platform: x86_64-suse-linux-gnu (64-bit)
@@ -7,17 +7,20 @@ Platform: x86_64-suse-linux-gnu (64-bit)
 >http://www.python.org
 
 
-##Python packages:
-###Scrapy - Version == 1.0.3
+## Python packages:
+### Scrapy - Version == 1.0.3
 >**Pablo Hoffman (2015)**. *Scrapy | A Fast and Powerful Scraping and Web Crawling Framework*. Python Package Index version 1.0.3.
 
 >https://scrapy.org/
 
 
-Buscador simple de la CNBV:
-  http://www.cnbv.gob.mx/SECTORES-SUPERVISADOS/SOCIEDADES-DE-INVERSION/Buscador-de-Sociedades-de-Inversi%C3%B3n/Paginas/B%C3%A1sico.aspx
-Sitio de extracción de fondos:
-  http://lt.morningstar.com/7ap7omrzjm/fundquickrank/default.aspx
+### Simple search of mutual funds at the CNBV website:
+>[http://www.cnbv.gob.mx/SECTORES-SUPERVISADOS/SOCIEDADES-DE-INVERSION/Buscador-de-Sociedades-de-Inversi%C3%B3n/Paginas/B%C3%A1sico.aspx](http://www.cnbv.gob.mx/SECTORES-SUPERVISADOS/SOCIEDADES-DE-INVERSION/Buscador-de-Sociedades-de-Inversi%C3%B3n/Paginas/B%C3%A1sico.aspx)
+
+
+### Web address of outsourced funds searcher to *Morningstar México*:
+>[http://lt.morningstar.com/7ap7omrzjm/fundquickrank/default.aspx](http://lt.morningstar.com/7ap7omrzjm/fundquickrank/default.aspx)
+
 
 ##Execution instructions
 ####Script files:
